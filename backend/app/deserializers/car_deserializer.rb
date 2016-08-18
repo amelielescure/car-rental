@@ -1,7 +1,4 @@
-class CarDeserializer
-  include Virtus.model
-  include ActiveModel::Model
-
+class CarDeserializer < DrivyDeserializer
   attribute :id, Integer
   attribute :price_per_day, Integer
   attribute :price_per_km, Integer

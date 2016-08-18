@@ -1,7 +1,4 @@
-class RentalDeserializer
-  include Virtus.model
-  include ActiveModel::Model
-
+class RentalDeserializer < DrivyDeserializer
   attribute :id, Integer
   attribute :car_id, Integer
   attribute :start_date, DateTime
