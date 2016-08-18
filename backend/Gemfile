@@ -4,3 +4,4 @@ ruby '2.2.2'
 
 gem 'virtus'
 gem 'pry'
+gem 'require_all'
