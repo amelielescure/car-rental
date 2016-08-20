@@ -31,4 +31,20 @@ class RentalDeserializer < DrivyDeserializer
   def discount_price
     duration_with_reduction * car.price_per_day + distance * car.price_per_km
   end
+
+  def commission
+    ( discount_price * 0.3 ).to_i
+  end
+
+  def insurance_fee
+    ( commission * 0.5 ).to_i
+  end
+
+  def assistance_fee
+    duration * 100
+  end
+
+  def drivy_fee
+    commission - ( insurance_fee + assistance_fee )
+  end
 end
