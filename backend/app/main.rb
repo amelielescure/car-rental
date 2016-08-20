@@ -2,13 +2,11 @@ require 'virtus'
 require 'active_model'
 require 'json'
 require 'require_all'
-require_all '../app'
-
-require 'pry'
+require_all 'app'
 
 class Drivy
   def initialize
-    data = JsonFileHelper.read_json('data.json')
+    data = JsonFileHelper.read_json('app/levels/level1/data.json')
 
     cars = data['cars']
     rentals = data['rentals']
@@ -22,7 +20,7 @@ class Drivy
     output = {}
     output['rentals'] = rental_cars.as_json
 
-    JsonFileHelper.generate_json(output)
+    JsonFileHelper.generate_json(output, 'app/levels/level1/myoutput.json')
   end
 end
 
