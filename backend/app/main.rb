@@ -9,3 +9,4 @@ require_all 'app'
 LevelOne.new
 LevelTwo.new
 LevelThree.new
+LevelFour.new

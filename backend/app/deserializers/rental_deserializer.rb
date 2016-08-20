@@ -4,10 +4,12 @@ class RentalDeserializer < DrivyDeserializer
   attribute :start_date, DateTime
   attribute :end_date, DateTime
   attribute :distance, Integer
+  attribute :deductible_reduction, Boolean
 
   attribute :car, CarDeserializer
 
   validates :id, :car_id, :start_date, :end_date, :distance, presence: true, allow_nil: false
+  validates :distance, :car_id, numericality: { only_integer: true }
 
   def duration
     end_date - start_date.prev_day(1)
@@ -46,5 +48,9 @@ class RentalDeserializer < DrivyDeserializer
 
   def drivy_fee
     commission - ( insurance_fee + assistance_fee )
+  end
+
+  def deductible_reduction_price
+    deductible_reduction ? duration * 400 : 0
   end
 end
