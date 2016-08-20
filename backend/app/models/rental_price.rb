@@ -1,4 +1,4 @@
-class RentalCar
+class RentalPrice
   include ActiveModel::Serializers::JSON
   include Virtus.model
 
