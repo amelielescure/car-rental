@@ -24,16 +24,10 @@ class RentalModificationDeserializer < DrivyDeserializer
     rental_after.start_date = start_date unless start_date.nil?
     rental_after.end_date = end_date unless end_date.nil?
     rental_after.distance = distance unless distance.nil?
-
     rental_price_after = RentalPrice.new(id: rental_after.id, rental: rental_after, car: rental_price.car)
     
-    options = Options.new(rental: rental_after)
-    rental_price_after.options = options
-    
-    commission = Commission.new(rental_price: rental_price_after)
-    rental_price_after.commission = commission
-    
     actions_after_modifications = rental_price_after.actions
+    
     new_actions = actions_after_modifications.zip(actions_before_modifications)
     new_actions = new_actions.map{ |actor| 
       amount = actor.first.amount - actor.last.amount

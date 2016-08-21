@@ -6,9 +6,9 @@ require 'pry'
 
 require_all 'app'
 
-LevelOne.new
-LevelTwo.new
-LevelThree.new
-LevelFour.new
-LevelFive.new
-LevelSix.new
+LevelOne.run
+LevelTwo.run
+LevelThree.run
+LevelFour.run
+LevelFive.run
+LevelSix.run

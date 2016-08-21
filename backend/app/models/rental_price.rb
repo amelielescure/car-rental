@@ -24,6 +24,14 @@ class RentalPrice < DrivyModel
     rental.duration_with_reduction * car.price_per_day + rental.distance * car.price_per_km
   end
 
+  def options
+    Options.new(rental: rental)
+  end
+
+  def commission
+    Commission.new(rental_price: self)
+  end
+
   def actions
     %w(driver owner insurance assistance drivy).map do |who|
       type = who == "driver" ? "debit" : "credit"
