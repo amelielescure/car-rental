@@ -5,7 +5,7 @@ class JsonFileHelper
   end
 
   def self.generate_json data, path
-  	File.delete(path) if File.file?(path)
+    File.delete(path) if File.file?(path)
     File.open(path, 'w') do |f|
       f.write( JSON.pretty_generate(data) )
     end

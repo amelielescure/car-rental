@@ -1,5 +1,5 @@
 class ActionsCollection < Array
-	def <<(actor)
+  def <<(actor)
    if actor.kind_of?(Hash)
     super(Actor.new(actor))
    else

@@ -6,6 +6,6 @@ describe 'Level 4' do
       LevelFour.run
     end
 
-		include_examples 'Levels', 'app/levels/level4'
-	end
+    include_examples 'Levels', 'app/levels/level4'
+  end
 end

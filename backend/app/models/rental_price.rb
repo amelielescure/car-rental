@@ -9,15 +9,15 @@ class RentalPrice < DrivyModel
   attribute :actions, ActionsCollection[Actor]
 
   def as_json *args
-  	hash = super
-  	hash['commission'] = commission.as_json(except: :rental_price) if hash['commission']
-  	hash['options'] = options.as_json(except: :rental) if hash['options']
+    hash = super
+    hash['commission'] = commission.as_json(except: :rental_price) if hash['commission']
+    hash['options'] = options.as_json(except: :rental) if hash['options']
     hash['actions'] = actions.as_json if hash['actions']
-  	hash
+    hash
   end
 
   def regular_price
-    rental.duration.to_i * car.price_per_day + rental.distance * car.price_per_km 
+    rental.duration.to_i * car.price_per_day + rental.distance * car.price_per_km
   end
 
   def discount_price

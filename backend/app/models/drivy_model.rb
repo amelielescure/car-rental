@@ -4,12 +4,12 @@ class DrivyModel
   include Virtus.model
 
   def attributes=(hash)
-  	hash.each do |key, value|
-  		send("#{key}=", value)
-  	end
+    hash.each do |key, value|
+      send("#{key}=", value)
+    end
   end
 
   def attributes
-  	instance_values
-	end
+    instance_values
+  end
 end
